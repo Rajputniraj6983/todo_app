@@ -1,18 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:todo_app/modal/Todo_list.dart';
+import 'package:get/get.dart';
 
-class TodoController extends GetxController
-{
-  void AddTask(Map m1)
+class TodoController extends GetxController{
+  RxList ToDoList=[].obs;
+  RxString task=''.obs;
+  void addtask(Map m1)
   {
-    Todo.add(m1);
-    print(Todo);
+    ToDoList.add(m1);
+    print(ToDoList);
   }
 
-  void Delete(int index)
-  {
-    Todo.removeAt(index);
+  RxInt index=0.obs;
+  void changindex(){
+    index++;
   }
 
+  void delete_task(int index){
+    ToDoList.removeAt(index);
+  }
 }
